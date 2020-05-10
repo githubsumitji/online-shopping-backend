@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/backend-db
+    username: postgres
+    password: Ayushi123_jet
+    initialization-mode: always
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        temp.use_jdbc_metadata_defaults: true
+        jdbc:
+          time_zone: UTC
+          lob:
+            non_contextual_creation: true
+      show_sql: true
+      dialect: org.hibernate.dialect.PostgreSQL9Dialect
+  data:
+    rest:
+      detection-strategy: annotated
+      base-path: /api/v1
+amazonProperties:
+  endpointUrl: https://s3.us-east-2.amazonaws.com
+  accessKey: AKIAZ6WBE54GVECZVWCJ
+  secretKey: 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
+  bucketName: sumitawsbucket

@@ -1,0 +1,35 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.4.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+    id "io.freefair.lombok" version "4.1.0"
+}
+
+def springVersion = '2.2.4.RELEASE'
+
+repositories {
+    mavenCentral()
+}
+group = 'com.book'
+version = '0.0.14'
+sourceCompatibility = '1.8'
+dependencies {
+
+    implementation('org.springframework.boot:spring-boot-starter-web') {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'org.postgresql:postgresql'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: springVersion
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-rest', version: springVersion
+    implementation group: 'com.google.guava', name: 'guava', version: '28.2-jre'
+    compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.775'
+    compile group: 'com.amazonaws', name: 'aws-lambda-java-core', version: '1.2.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
